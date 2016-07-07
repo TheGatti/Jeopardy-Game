@@ -1,0 +1,14 @@
+<h2>The category is: "{{ theQuestion.category.title }}"</h2>
+<img src="http://lovelace-media.imgix.net/uploads/361/ed8d8080-97aa-0132-1e46-0a2c89e5f2f5.png?" alt="" />
+<h2>Here's your question: {{ theQuestion.question }}?</h2>
+<h2>Points Available: {{ theQuestion.value }}</h2>
+<input type="text" ng-model="userAnswer">
+<button ng-click="checkAnswer()">Submit Answer</button>
+<button ng-click="generateQuestion()">Generate question</button>
+<h2>Your terrible Answer : {{userAnswer}}</h2>
+<h2>The CORRECT Answer : {{correctAnswer}}</h2>
+<h3>Difficulty Points : {{points}}</h3>
+<h4>Questions you most likely answered incorrectly:</h4>
+<ul ng-repeat="question in questionHistory | orderBy:'question'">
+    <li>{{question.question}}</li>
+</ul>

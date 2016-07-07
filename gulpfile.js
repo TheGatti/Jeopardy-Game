@@ -21,8 +21,10 @@ var browserify = require('gulp-browserify');
 // Specify dependencies
 // protip: 'default' is...the...default
 gulp.task('default', ['html', 'js', 'css']);
+
 gulp.task('html', function () {
-    gulp.src('./index.html')
+  gulp.src('./templates/*.html').pipe(gulp.dest('./public/templates'));
+    return gulp.src('./index.html')
         .pipe(gulp.dest('./public'));
     // what to do for this task.
 });
@@ -45,6 +47,7 @@ gulp.task('watch', function () {
     // files to watch, then what tasks to run when they change
     // gulp.watch('./scss/styles.scss', ['css']);
     gulp.watch('./index.html', ['html']);
+    gulp.watch('./templates/*.html', ['html']);
     gulp.watch('./js/*.js', ['js']);
     gulp.watch('./views/*.js', ['js']);
     gulp.watch('./models/*.js', ['js']);
